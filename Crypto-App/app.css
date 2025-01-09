@@ -1,0 +1,576 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.coin_container > ul
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.coin_container> ul > li
+{
+    list-style: none;
+    padding: 5px;
+}
+
+.coin_container> ul > li > img, #active_coin > img
+{
+    width: 25px;
+}
+
+#active_coin
+{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    border-collapse: separate;
+}
+/* Layout and Container Styles */
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 85vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+main > nav
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+main > section
+{
+    height: 95%;
+    text-align: center;
+   
+}
+
+main > section > *
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+main > #inputs > .hidden {
+    display: none;
+}
+
+
+
+
+
+.coin_item{
+    cursor:pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Profiles Section */
+#profiles {
+    height: 80%;
+}
+
+#profiles > ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+#profiles > ul > li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 25px;
+}
+
+#profiles > ul > li:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#profiles > ul > li .user-icon {
+    font-size: 40px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#profiles > ul > li .cancel-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+}
+
+#profiles > ul > li .cancel-btn:hover {
+    background-color: #ff4b4b;
+}
+
+/* Buttons */
+#newProfileButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+#newProfileButton:hover {
+    background-color: #45a049;
+}
+
+#newProfileButton:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+.modal-content button:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}
+
+/* Modal Styles */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+/* Empty State */
+.empty {
+    font-size: 96px;
+    font-weight: bold;
+    color: #999;
+    text-align: center;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#wallet-header 
+{
+    text-align: center;
+    font-size: 55px;
+}
+#play
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#play > img
+{
+    width: 10px;
+}
+
+#user_info
+{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#user_info > img
+{
+    width: 25px;
+}
+
+.market-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.market {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    margin: 25px 0;
+}
+
+.latest-price-line {
+    position: absolute;
+    width: 100%;
+    border-top: 1px dashed gray;
+    z-index: 1;
+    pointer-events: none; 
+}
+
+.latest-price-label {
+    position: absolute;
+    background: white;
+    padding: 2px 5px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    font-size: 12px;
+    color: gray;
+    font-weight: bold;
+    right: 0;
+}
+
+
+.candlestick-container {
+    
+    position: absolute;
+    bottom: 0;
+    width: 6px;
+    transition: left 0.5s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+.candlestick-container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.stick {
+    background-color: black;
+    position: absolute;
+    width: 2px;
+}
+
+.bar {
+    position: absolute;
+    width: 6px;
+    border-radius: 2px;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+
+}
+#trading-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    flex: 5;
+    margin-top: -25px;
+}
+
+#wallet-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    flex: 7;
+    margin-top: 5px;
+}
+
+/* Wallet Table Styles */
+.wallet-table {
+    width: 100%;
+    border-spacing: 1px; 
+    border-collapse: separate; 
+    text-align: center;
+    border: 1px solid #ddd; 
+}
+
+.wallet-table th {
+    background-color: #b0c4de;
+    color: white;
+    padding: 10px;
+}
+
+.wallet-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.wallet-table .highlight-row {
+    background-color: #90ee90;
+    font-weight: bold;
+}
+
+.wallet-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.wallet-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Trading Buttons */
+.trading-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    
+}
+
+.trading-buttons button {
+    width: 125px;
+    padding: 5px;
+    border: 2px solid #4caf50;
+    border-radius: 5px;
+    background-color: white;
+    color: #4caf50;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.trading-buttons .active.buy-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.trading-buttons .active.sell-button {
+    background-color: red;
+    color: white;
+    border-color: red;
+}
+
+/* Input Section */
+.trading-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.trading-inputs input {
+    padding: 10px;
+    width: 250;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Action Button */
+
+.trading-action{
+    display: flex;
+    justify-content: center;
+}
+
+.trading-action .trade-button {
+    width: 200px;
+    padding: 5px;
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.trading-action .trade-button.buy {
+    background-color: #4caf50;
+}
+
+.trading-action .trade-button.sell {
+    background-color: red;
+}
+
+#animated_coin , .wallet_heartbeat {
+    animation: heartbeat 3s infinite; 
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.unvisible{
+    visibility:hidden;
+}
+
+#nextDay, #play, #backButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 20px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    text-align: center;
+}
+
+#nextDay:hover, #play:hover, #backButton:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#nextDay:active, #play:active, #backButton:active {
+    background-color: #e0e0e0;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(0.98); 
+}
+
+.dotted-line {
+    position: absolute;
+    width: 100%; 
+    border-top: 1px solid #ddd; 
+    text-align: right;
+    font-size: 12px;
+    color: black;
+    pointer-events: none; 
+}
+
+.chart-high-line .line-label {
+    color: black;
+    position: absolute;
+    top: -15px; 
+    right: 0;
+}
+
+.chart-low-line .line-label {
+    color: black;
+    position: absolute;
+    bottom: -15px; 
+    right: 0;
+}
+
+.latest-price-line .latest-price-label {
+    color: black;
+    background: white;
+    padding: 2px 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
